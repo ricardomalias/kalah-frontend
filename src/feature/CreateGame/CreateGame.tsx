@@ -1,16 +1,56 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PlayerContext } from '../../App';
+import Game from '../../model/Game';
+import { GameStatus } from '../../model/GameStatus';
 import './CreateGame.css'
 import Instruction from './Instruction';
 
-function CreateGame() {
+function CreateGame(props: any) {
 
     const [displayForm, setDisplayForm] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const { link, callback, player } = props;
+    const navigate = useNavigate()
 
     function changeForm() {
         setDisplayForm(true)
     }
 
-    let form: JSX.Element = <div>
+    function createGame(data: Game) {
+        callback(data)
+        setLoading(false)
+    }
+
+    function startGame() {
+        navigate(`/${player.playerKey}`)
+    }
+
+    let form: JSX.Element =  <div></div>;
+
+    const submitForm = (event: any) => {
+        event.preventDefault()
+        setLoading(true)
+        const formData = new FormData(event.target);
+        let formObject = Object.fromEntries(formData.entries())
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formObject)
+        };
+
+        fetch('http://localhost:8080/game/', requestOptions)
+            .then(response => response.json())
+            .then(data => createGame(data))
+            .catch((e) => {
+                console.log(e)
+                setLoading(false)
+            });
+    }
+
+    if(!displayForm && !loading) {
+        form = <div>
             <div>
                 <Instruction/>
             </div>
@@ -21,26 +61,9 @@ function CreateGame() {
             <br />
             &nbsp;
         </div>
-
-    const submitForm = (event: any) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        let formObject = Object.fromEntries(formData.entries())
-
-        console.log("geroudo")
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formObject)
-        };
-        fetch('http://localhost:8080/game/', requestOptions)
-            .then(response => {
-                console.log(response.json())
-            });
-            // .then(data => this.setState({ postId: data.id }));
     }
 
-    if(displayForm) {
+    if(displayForm && !loading && !link) {
         form = <form onSubmit={submitForm} method="post">
                     <label>
                         First Player Name:
@@ -57,8 +80,32 @@ function CreateGame() {
                 </form>
     }
 
+    if(loading && !link) {
+        form = <div>
+            Carregando...
+        </div>
+    }
+
+    let shareLink: JSX.Element = <div></div>
+    if(link && player.status === GameStatus.WAITING) {
+        shareLink = <div className="share">
+            Share this link with the other player:
+            <br/>
+            <br/>
+            {link}
+            <br/>
+            <br/>
+            <button onClick={startGame}>
+                Ok, I already shared it
+            </button>
+        </div>
+    }
+
     return (
         <div>
+            <div>
+                {shareLink}
+            </div>
             <div>
                 {form}
             </div>
