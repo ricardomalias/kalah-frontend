@@ -1,0 +1,39 @@
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    font-family: verdana, arial, helvetica;
+}
+
+.instruction {
+    width: 45%;
+    text-align: left;
+    display: inline-block;
+    font-size: 18px;
+    font-family: verdana, arial, helvetica;
+    vertical-align: top;
+}
+
+.instruction li {
+    min-height: 80px;
+}
+
+input[type=submit],button {
+    background: #01814e;
+    border: 1px solid #01814e;
+    font-size: 16px;
+    font-family: verdana;
+    color: #fff;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: ease 500ms;
+}
+
+input[type=submit],button:hover {
+    border: 1px solid #333;
+    background: rgba(1, 129, 78, 0.6) /*background: #54A769;*/;
+}
