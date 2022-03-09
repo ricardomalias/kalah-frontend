@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PlayerContext } from '../../App';
 import Game from '../../model/Game';
 import { GameStatus } from '../../model/GameStatus';
 import './CreateGame.css'

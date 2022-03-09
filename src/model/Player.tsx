@@ -7,8 +7,10 @@ export default interface Game {
     playerNumber: number,
     playerPing: Ping,
     playerTurn: boolean,
+    opponentMancala: number,
     playerMancala: number,
     matchTime: number,
+    matchTurn: number,
     status: GameStatus,
     cups: Array<number>
   }

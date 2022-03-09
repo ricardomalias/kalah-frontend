@@ -28,7 +28,7 @@ function App() {
             cups: game.cups
         } as Player
 
-        setLink(`http://localhost:8080/${game.secondPlayerKey}`)
+        setLink(`http://${window.location.host}/${game.secondPlayerKey}`)
         setPlayer(playerNew)
     }
 

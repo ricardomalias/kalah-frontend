@@ -1,0 +1,15 @@
+
+.header {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.header-item {
+    display: inline-block;
+    width: 25%
+}
+
+.header-item-right {
+    text-align: right;
+}
