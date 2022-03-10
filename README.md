@@ -31,3 +31,9 @@ tunnels:
 ```
 
 Have double of fun =)
+
+Player 1:
+![Player 1](https://forleven-assets.s3.amazonaws.com/player1.jpeg "Player 1")
+
+Player 2:
+![Player 2](https://forleven-assets.s3.amazonaws.com/player2.jpeg "Player 2")
