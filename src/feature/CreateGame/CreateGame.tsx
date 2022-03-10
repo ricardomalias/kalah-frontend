@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { URL_BACKEND } from '../../config/config';
 import Game from '../../model/Game';
 import { GameStatus } from '../../model/GameStatus';
 import './CreateGame.css'
@@ -39,7 +40,7 @@ function CreateGame(props: any) {
             body: JSON.stringify(formObject)
         };
 
-        fetch('http://localhost:8080/game/', requestOptions)
+        fetch(`${URL_BACKEND}/game/`, requestOptions)
             .then(response => response.json())
             .then(data => createGame(data))
             .catch((e) => {

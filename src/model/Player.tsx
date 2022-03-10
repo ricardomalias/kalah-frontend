@@ -11,6 +11,6 @@ export default interface Game {
     playerMancala: number,
     matchTime: number,
     matchTurn: number,
-    status: GameStatus,
+    status: string,
     cups: Array<number>
   }
