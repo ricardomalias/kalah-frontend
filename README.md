@@ -1,4 +1,4 @@
-#Kalah-frontend
+# Kalah-frontend
 
 ### How to run ?
 
