@@ -30,5 +30,4 @@ tunnels:
     proto: http
 ```
 
-
-Have the double of fun =)
+Have double of fun =)
