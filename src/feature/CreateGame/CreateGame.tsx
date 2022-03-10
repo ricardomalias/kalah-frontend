@@ -51,15 +51,17 @@ function CreateGame(props: any) {
 
     if(!displayForm && !loading) {
         form = <div>
-            <div>
-                <Instruction/>
-            </div>
+            <h2>
+                Welcome to Kalah game
+            </h2>
             <br/>
             <br/>
             <button onClick={changeForm}>Create Game</button>
             <br />
             <br />
-            &nbsp;
+            <div>
+                <Instruction/>
+            </div>
         </div>
     }
 

@@ -4,12 +4,11 @@ function Instruction() {
 
     return (
         <div>
-            <h1>
-                Welcome to Kalah game
-            </h1>
-            <h2>
+            <h3>
                 How to play ?
-            </h2>
+                <br/>
+                <a href="https://www.wikihow.com/Play-Kalaha">https://www.wikihow.com/Play-Kalaha</a>
+            </h3>
             <br/>
             <div>
                 <div className="instruction">
