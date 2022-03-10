@@ -19,7 +19,7 @@ We can use a application called ngrok to have a trial web
 - Download ngrok: https://ngrok.com/download
 - Configure ngrok.yml on your user folder to expose both backend and frontend:
 
-`
+```
 authtoken: YOUR_TOKEN_HERE
 tunnels:
   first:
@@ -28,7 +28,7 @@ tunnels:
   second:
     addr: 3000
     proto: http
-`
+```
 
 
-With two players are twice more fun =)
+Have the double of fun =)
